@@ -16,7 +16,7 @@ Maintenance is easier: all used dom elements are gathered.
           content:
             sel:         '.content_design'
             description: '.grey'
-        right:           '.right'
+        right:           { sel: '.right', cache: false }
 
       events:
         "click @left_title":                 "title_clicked"
