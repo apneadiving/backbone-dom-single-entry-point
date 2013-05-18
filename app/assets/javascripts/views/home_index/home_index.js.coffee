@@ -16,7 +16,6 @@ class BackboneTest.Views.HomeIndex extends Backbone.View
     "click @first_meta": "meta"
 
   initialize: ->
-    @setElement $('#list')
 
   first: ->
     console.log 1
