@@ -1,5 +1,7 @@
 Backbone.View::delegateEvents = (events) ->
   #beginning of additional code
+  if typeof(@selectors) == 'object'
+    @sep = new Backbone.SingleEntryPoint(@$el, { selectors: @selectors } )
   delegateEventSplitter = /^(\S+)\s*(.*)$/;
   #end of additional code
   return this  unless events or (events = _.result(this, "events"))
@@ -22,17 +24,4 @@ Backbone.View::delegateEvents = (events) ->
       #end of additional code
       else
         @$el.on eventName, selector, method
-  this
-
-Backbone.View::setElement = (element, delegate) ->
-  @undelegateEvents() if @$el
-  @$el = (if element instanceof Backbone.$ then element else Backbone.$(element))
-  @el = @$el[0]
-
-  #beginning of additional code
-  if typeof(@selectors) == 'object'
-    @sep = new Backbone.SingleEntryPoint(@$el, { selectors: @selectors } )
-  #end of additional code
-
-  @delegateEvents() if delegate isnt false
   this
