@@ -1,18 +1,8 @@
-class Backbone.SingleEntryPoint extends Backbone.Optionnable
+class Backbone.SingleEntryPoint
+  _cached: {}
 
-  _cached:    {}
-
-  @options {}
-
-  constructor:  ( @$root, options ) ->
+  constructor:  ( @$root, @options ) ->
     @_bound = {}
-
-    @options = $.extend( {}, @constructor._options, options )
-
-    if @options.dependencies?
-      for own name, dependency of @options.dependencies
-        @[ name ] = dependency
-
     @_flatten_selectors()
 
   get: ( selector_name ) ->
@@ -40,7 +30,7 @@ class Backbone.SingleEntryPoint extends Backbone.Optionnable
         throw new Error "Selector not found : #{selector_name}"
 
   _find_full_selector: ( selector_name ) ->
-    definition = @selectors[ selector_name ]
+    definition   = @selectors[ selector_name ]
     prepend_path = if definition.within? then @_find_full_selector( definition.within ) else ""
     prepend_path + " " + definition.sel
 
