@@ -14,8 +14,8 @@ Maintenance is easier: all used dom elements are gathered.
           sel:           '.left'
           title:         '.title'
           content:
-            sel:         '.content'
-            description: '.description'
+            sel:         '.content_design'
+            description: '.grey'
         right:           '.right'
 
       events:
@@ -25,7 +25,7 @@ Maintenance is easier: all used dom elements are gathered.
 
         "click @left_content_description":   "description_clicked"
         # equivalent to: 
-        "click .left .content .description": "description_clicked"
+        "click .left .content_design .grey": "description_clicked"
         
       some_method: ->
         @sep.get('left_title') # jquery object
@@ -37,8 +37,8 @@ Maintenance is easier: all used dom elements are gathered.
        <div id='foo'>
          <div class='left'>
            <div class='title'> Title </div>
-           <div class='content'>
-             <div class='description'> Description </div>
+           <div class='content_design'>
+             <div class='grey'> Description </div>
            </div>
          </div>
          <div class='right'>  </div>
