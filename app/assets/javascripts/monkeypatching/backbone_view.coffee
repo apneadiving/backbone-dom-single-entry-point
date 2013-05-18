@@ -1,5 +1,7 @@
 Backbone.View::delegateEvents = (events) ->
+  #beginning of additional code
   delegateEventSplitter = /^(\S+)\s*(.*)$/;
+  #end of additional code
   return this  unless events or (events = _.result(this, "events"))
   @undelegateEvents()
   for key of events
