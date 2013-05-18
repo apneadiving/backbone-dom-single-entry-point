@@ -28,6 +28,7 @@ Maintenance is easier: all used dom elements are gathered.
         "click .left .content_design .grey": "description_clicked"
         
       some_method: ->
+        # @sep stands for single entry point
         @sep.get('left_title') # jquery object
         @sep.get('left_content_description') # jquery object
         
