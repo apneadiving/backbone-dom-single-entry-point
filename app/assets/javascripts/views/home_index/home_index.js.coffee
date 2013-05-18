@@ -9,15 +9,14 @@ class BackboneTest.Views.HomeIndex extends Backbone.View
     second: '.second'
     third:  '.third'
 
-  initialize: ->
-    @setElement $('#list')
-    window.foo = @
-
   events:
     "click @first":      "first"
     "click @second":     "second"
     "click @third":      "third"
     "click @first_meta": "meta"
+
+  initialize: ->
+    @setElement $('#list')
 
   first: ->
     console.log 1
