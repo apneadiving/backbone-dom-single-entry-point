@@ -22,12 +22,7 @@ class Backbone.SingleEntryPoint
 
       $found
     else
-      # Fixme: should not have to do the replace call. Make sure selector_name never contains #
-      $element = @$root.find( "##{selector_name.replace('#', '')}" )
-      if $element.get(0)
-        @[ "$#{selector_name}" ] = $element
-      else
-        throw new Error "Selector not found : #{selector_name}"
+      throw new Error "Selector not found : #{selector_name}"
 
   _find_full_selector: ( selector_name ) ->
     definition   = @selectors[ selector_name ]
